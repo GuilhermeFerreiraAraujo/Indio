@@ -1,6 +1,4 @@
-﻿
-
-using Indio.Services.Contracts;
+﻿using Indio.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Indio.Controllers
@@ -24,9 +22,6 @@ namespace Indio.Controllers
             return Ok(result);
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }

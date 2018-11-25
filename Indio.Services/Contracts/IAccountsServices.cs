@@ -1,5 +1,4 @@
-﻿
-using Indio.Models;
+﻿using Indio.Models;
 using System.Collections.Generic;
 
 namespace Indio.Services.Contracts

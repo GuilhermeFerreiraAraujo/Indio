@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Indio.Models
+﻿namespace Indio.Models
 {
     public partial class Users
     {

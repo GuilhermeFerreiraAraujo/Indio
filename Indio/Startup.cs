@@ -3,7 +3,6 @@ using Indio.Services;
 using Indio.Services.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,6 +17,8 @@ namespace Indio
             var connection = @"Data Source=DESKTOP-7H9S4CS\\SQLEXPRESS;Initial Catalog=Indio;Integrated Security=True";
             services.AddDbContext<IndioContext>(options => options.UseSqlServer(connection));
             services.AddTransient<IAccountsServices, AccountsServices>();
+            services.AddTransient<ICustomersServices, CustomersServices>();
+            services.AddTransient<IUsersServices, UsersServices>();
             services.AddMvc();
         }
 
