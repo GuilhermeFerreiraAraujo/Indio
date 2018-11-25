@@ -14,4 +14,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Indio.Models\Indio.Models.csproj" />
+    <ProjectReference Include="..\Indio.Services\Indio.Services.csproj" />
+  </ItemGroup>
+
 </Project>

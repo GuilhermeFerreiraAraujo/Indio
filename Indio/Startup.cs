@@ -1,4 +1,6 @@
 ﻿using Indio.Models;
+using Indio.Services;
+using Indio.Services.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -15,6 +17,8 @@ namespace Indio
         {
             var connection = @"Data Source=DESKTOP-7H9S4CS\\SQLEXPRESS;Initial Catalog=Indio;Integrated Security=True";
             services.AddDbContext<IndioContext>(options => options.UseSqlServer(connection));
+            services.AddTransient<IAccountsServices, AccountsServices>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -25,9 +29,13 @@ namespace Indio
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
+            app.UseStaticFiles();
+
+            app.UseMvc(routes =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action}/{id?}");
             });
         }
     }
