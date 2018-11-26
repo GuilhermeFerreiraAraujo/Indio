@@ -2,7 +2,23 @@
     <!-- first, we include the Bootstrap css, which was bundled as "css/bootstrap.css" -->
     <require from="node_modules/bootstrap/dist/css/bootstrap.css"></require>
 
-    <h1>${heading}</h1>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+            <a class="navbar-brand" href="#">Logo</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </nav>
 
       <form submit.trigger="addTodo()">
         <input type="text" value.bind="todoDescription">
