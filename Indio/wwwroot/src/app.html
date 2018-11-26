@@ -1,9 +1,12 @@
 <template>
+    <!-- first, we include the Bootstrap css, which was bundled as "css/bootstrap.css" -->
+    <require from="node_modules/bootstrap/dist/css/bootstrap.css"></require>
+
     <h1>${heading}</h1>
 
-    <form submit.trigger="addTodo()">
+      <form submit.trigger="addTodo()">
         <input type="text" value.bind="todoDescription">
-        <button type="submit">Add Todo</button>
+        <button class="btn btn-primary" type="submit">Add Todos</button>
       </form>
 
       <ul>
