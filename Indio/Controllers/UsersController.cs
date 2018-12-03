@@ -1,12 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Indio.Services.Contracts;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Indio.Controllers
 {
+    [Route("api/[controller]")]
     public class UsersController : Controller
     {
-        public IActionResult Index()
+        private readonly IUsersServices _usersServices;
+
+        public UsersController(IUsersServices usersServices)
         {
-            return View();
+            _usersServices = usersServices;
+        }
+
+        [HttpGet]
+        [Route("Get")]
+        public IActionResult Get()
+        {
+            var result = _usersServices.GetUsers();
+            return Ok(result);
         }
     }
 }
