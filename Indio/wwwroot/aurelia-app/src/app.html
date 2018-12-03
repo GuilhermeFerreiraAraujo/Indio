@@ -4,16 +4,14 @@
         <a class="navbar-brand" href="#">Indio</a>
         
 
-            <ul class="navbar-nav mr-auto" repeat.for="nav of router.navigation">
+            <ul class="navbar-nav " repeat.for="nav of router.navigation">
                 <li class="nav-item ${nav.isActive ? 'active' : ''}">
                   <a class="nav-link" href.bind="nav.href">${nav.title}</a>
                 </li>
             </ul>
 
          
-          <span class="navbar-text">
-            Navbar text with an inline element
-          </span>
+          
       
       </nav>
 
