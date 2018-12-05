@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace Indio.Models
 {
@@ -13,9 +13,9 @@ namespace Indio.Models
         {
         }
 
-        public virtual DbSet<Accounts> Accounts { get; set; }
-        public virtual DbSet<Customers> Customers { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -27,7 +27,7 @@ namespace Indio.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Customers>(entity =>
+            modelBuilder.Entity<Customer>(entity =>
             {
                 entity.Property(e => e.Name).HasColumnName("NAME");
             });

@@ -1,4 +1,5 @@
-﻿using Indio.Models;
+﻿using Indio.DataAccess.Contracts;
+using Indio.Models;
 using Indio.Services.Contracts;
 using System.Collections.Generic;
 
@@ -6,10 +7,16 @@ namespace Indio.Services
 {
     public class AccountsServices : IAccountsServices
     {
-        public IEnumerable<Accounts> GetAccounts()
-        {
+        private readonly IAccountsDataAccess _accountsDataAccess;
 
-            return new List<Accounts>();
+        public AccountsServices(IAccountsDataAccess accountsDataAccess)
+        {
+            _accountsDataAccess = accountsDataAccess;
+        }
+
+        public IEnumerable<Account> GetAccounts()
+        {
+            return _accountsDataAccess.Get();
         }
     }
 }

@@ -6,6 +6,6 @@ namespace Indio.Services.Contracts
 {
     public interface ICustomersServices
     {
-        IEnumerable<Customers> GetCustomers();
+        IEnumerable<Customer> GetCustomers();
     }
 }

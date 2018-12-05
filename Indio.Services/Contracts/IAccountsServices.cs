@@ -5,6 +5,6 @@ namespace Indio.Services.Contracts
 {
     public interface IAccountsServices
     {
-        IEnumerable<Accounts> GetAccounts(); 
+        IEnumerable<Account> GetAccounts(); 
     }
 }

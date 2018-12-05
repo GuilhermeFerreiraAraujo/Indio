@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Indio.DataAccess.Contracts;
 using Indio.Models;
 using Indio.Services.Contracts;
 
@@ -6,9 +7,16 @@ namespace Indio.Services
 {
     public class UsersServices : IUsersServices
     {
-        public IEnumerable<Users> GetUsers()
+        private readonly IUsersDataAccess _usersDataAccess;
+
+        public UsersServices(IUsersDataAccess usersDataAccess)
         {
-            throw new System.NotImplementedException();
+            _usersDataAccess = usersDataAccess;
+        }
+
+        public IEnumerable<User> GetUsers()
+        {
+            return _usersDataAccess.Get();
         }
     }
 }

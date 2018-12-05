@@ -1,4 +1,6 @@
-﻿using Indio.Models;
+﻿using Indio.DataAccess;
+using Indio.DataAccess.Contracts;
+using Indio.Models;
 using Indio.Services;
 using Indio.Services.Contracts;
 using Microsoft.AspNetCore.Builder;
@@ -14,11 +16,13 @@ namespace Indio
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = @"Data Source=DESKTOP-7H9S4CS\\SQLEXPRESS;Initial Catalog=Indio;Integrated Security=True";
-            services.AddDbContext<IndioContext>(options => options.UseSqlServer(connection));
+            services.AddTransient<IndioContext, IndioContext>();
             services.AddTransient<IAccountsServices, AccountsServices>();
             services.AddTransient<ICustomersServices, CustomersServices>();
             services.AddTransient<IUsersServices, UsersServices>();
+            services.AddTransient<IAccountsDataAccess, AccountsDataAccess>();
+            services.AddTransient<ICustomersDataAccess, CustomersDataAccess>();
+            services.AddTransient<IUsersDataAccess, UsersDataAccess>();
             services.AddMvc();
         }
 

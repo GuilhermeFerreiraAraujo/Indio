@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Indio.DataAccess\Indio.DataAccess.csproj" />
     <ProjectReference Include="..\Indio.Models\Indio.Models.csproj" />
   </ItemGroup>
 
