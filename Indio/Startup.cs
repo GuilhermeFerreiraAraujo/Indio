@@ -4,6 +4,7 @@ using Indio.Models;
 using Indio.Services;
 using Indio.Services.Contracts;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,7 @@ namespace Indio
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddTransient<IndioContext, IndioContext>();
             services.AddTransient<IAccountsServices, AccountsServices>();
             services.AddTransient<ICustomersServices, CustomersServices>();
@@ -33,6 +35,12 @@ namespace Indio
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Shows UseCors with CorsPolicyBuilder.
+            app.UseCors(builder =>
+               builder.WithOrigins("http://localhost:8080"));
+
+            app.UseCors("AllowAll");
 
             app.UseStaticFiles();
 
