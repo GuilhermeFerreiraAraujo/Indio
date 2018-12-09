@@ -1,3 +1,5 @@
 
 
-Run http-server -o -c-1 
+1 - Run visual studio project
+2 - Execute au run on wwwroot
+
