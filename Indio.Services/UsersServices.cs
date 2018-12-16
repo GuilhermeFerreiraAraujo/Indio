@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Indio.DataAccess.Contracts;
 using Indio.Models;
+using Indio.Models.Requests;
+using Indio.Models.Responses;
 using Indio.Services.Contracts;
 
 namespace Indio.Services
@@ -17,6 +19,11 @@ namespace Indio.Services
         public IEnumerable<User> GetUsers()
         {
             return _usersDataAccess.Get();
+        }
+
+        public SignUpResponse SignUpUser(SignUpRequest request)
+        {
+            return _usersDataAccess.SignUpUser(request);
         }
     }
 }

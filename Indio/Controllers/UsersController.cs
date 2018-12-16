@@ -1,4 +1,5 @@
 ﻿using Indio.Models.Requests;
+using Indio.Models.Responses;
 using Indio.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,7 +27,9 @@ namespace Indio.Controllers
         [Route("SignUps")]
         public IActionResult SignUp([FromBody]SignUpRequest request)
         {
-            return Ok();
+            var result = _usersServices.SignUpUser(request);
+
+            return Ok(result);
         }
 
     }
