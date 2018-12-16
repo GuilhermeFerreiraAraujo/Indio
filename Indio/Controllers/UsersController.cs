@@ -1,4 +1,5 @@
-﻿using Indio.Services.Contracts;
+﻿using Indio.Models.Requests;
+using Indio.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Indio.Controllers
@@ -20,5 +21,13 @@ namespace Indio.Controllers
             var result = _usersServices.GetUsers();
             return Ok(result);
         }
+
+        [HttpPost]
+        [Route("SignUps")]
+        public IActionResult SignUp([FromBody]SignUpRequest request)
+        {
+            return Ok();
+        }
+
     }
 }

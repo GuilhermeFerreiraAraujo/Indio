@@ -38,7 +38,11 @@ namespace Indio
 
             // Shows UseCors with CorsPolicyBuilder.
             app.UseCors(builder =>
-               builder.WithOrigins("http://localhost:8080"));
+               builder.WithOrigins("*")
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowAnyOrigin()
+               );
 
             app.UseCors("AllowAll");
 
