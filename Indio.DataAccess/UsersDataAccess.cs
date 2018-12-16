@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using Indio.DataAccess.Contracts;
 using Indio.Models;
 using Indio.Models.Requests;
@@ -23,18 +26,26 @@ namespace Indio.DataAccess
 
         public SignUpResponse SignUpUser(SignUpRequest request)
         {
-
             var user = new User
             {
                 Email = request.Email,
                 Name = request.Name,
-                Password = request.Password
+                Password = GetHashPassword(request.Password)
             };
 
             _context.Add(user);
             _context.SaveChanges();
             return new SignUpResponse();
+        }
 
+        private string GetHashPassword(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                var hash = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();  
+                return hash;
+            }
         }
     }
 }
