@@ -4,7 +4,7 @@ import { autoinject } from "../../node_modules/aurelia-framework";
 @autoinject
 export class BaseClient {
 
-    private baseUrl: string = 'https://localhost:44307/api/';
+    private baseUrl: string = 'https://localhost:5001/api/';
 
     constructor(private client: HttpClient ){
     }
