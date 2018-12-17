@@ -24,6 +24,13 @@ namespace Indio.Controllers
         }
 
         [HttpPost]
+        [Route("Login")]
+        public IActionResult Login([FromBody] LoginRequest request)
+        {
+            return Ok();
+        }
+
+        [HttpPost]
         [Route("SignUps")]
         public IActionResult SignUp([FromBody]SignUpRequest request)
         {
