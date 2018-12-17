@@ -2,6 +2,7 @@
 using Indio.Models.Responses;
 using Indio.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Indio.Controllers
 {
@@ -25,7 +26,7 @@ namespace Indio.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public IActionResult Login([FromBody] LoginRequest request)
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
             return Ok();
         }
