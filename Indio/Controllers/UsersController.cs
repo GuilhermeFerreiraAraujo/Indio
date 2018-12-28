@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Indio.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class UsersController : Controller
     {
@@ -21,7 +22,6 @@ namespace Indio.Controllers
 
         [HttpGet]
         [Route("Get")]
-        [Authorize]
         public IActionResult Get()
         {
             var result = _usersServices.GetUsers();
@@ -30,6 +30,7 @@ namespace Indio.Controllers
 
         [HttpPost]
         [Route("Login")]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
             if (LoginUser(request.Email, request.Password))
@@ -49,6 +50,15 @@ namespace Indio.Controllers
             }
             return Ok();
 
+        }
+
+
+        [HttpGet]
+        [Route("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return Ok();
         }
 
 

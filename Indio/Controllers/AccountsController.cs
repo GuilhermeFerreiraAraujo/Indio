@@ -1,8 +1,10 @@
 ﻿using Indio.Services.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Indio.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class AccountsController : Controller
     {
