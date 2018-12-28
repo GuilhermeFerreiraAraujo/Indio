@@ -3,6 +3,7 @@ using Indio.DataAccess.Contracts;
 using Indio.Models;
 using Indio.Services;
 using Indio.Services.Contracts;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
@@ -25,6 +26,13 @@ namespace Indio
             services.AddTransient<IAccountsDataAccess, AccountsDataAccess>();
             services.AddTransient<ICustomersDataAccess, CustomersDataAccess>();
             services.AddTransient<IUsersDataAccess, UsersDataAccess>();
+
+            
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options => {
+                options.LoginPath = "/Users/Login";
+            });
+
             services.AddMvc();
         }
 
@@ -35,6 +43,7 @@ namespace Indio
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseAuthentication();
 
             // Shows UseCors with CorsPolicyBuilder.
             app.UseCors(builder =>
@@ -42,6 +51,7 @@ namespace Indio
                .AllowAnyHeader()
                .AllowAnyMethod()
                .AllowAnyOrigin()
+               .AllowCredentials()
                );
 
             app.UseCors("AllowAll");

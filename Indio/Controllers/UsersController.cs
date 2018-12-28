@@ -1,7 +1,10 @@
 ﻿using Indio.Models.Requests;
-using Indio.Models.Responses;
 using Indio.Services.Contracts;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Indio.Controllers
@@ -18,6 +21,7 @@ namespace Indio.Controllers
 
         [HttpGet]
         [Route("Get")]
+        [Authorize]
         public IActionResult Get()
         {
             var result = _usersServices.GetUsers();
@@ -28,8 +32,33 @@ namespace Indio.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
+            if (LoginUser(request.Email, request.Password))
+            {
+                var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, request.Email)
+            };
+
+                var userIdentity = new ClaimsIdentity(claims, "login");
+
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                await HttpContext.SignInAsync(principal);
+
+                //Just redirect to our index after logging in. 
+                return Ok();
+            }
             return Ok();
+
         }
+
+
+        private bool LoginUser(string username, string password)
+        {
+            //As an example. This method would go to our data store and validate that the combination is correct. 
+            //For now just return true. 
+            return true;
+        }
+
 
         [HttpPost]
         [Route("SignUps")]

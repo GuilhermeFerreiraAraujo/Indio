@@ -11,8 +11,8 @@ export class Login {
     }
 
     login(){
-        this.baseClient.post('Users/Login', this.request).then(data => {
-            console.log("Work");
+        this.baseClient.post('users/Login', this.request).then(data => {
+              
         }).catch(ex => {
             console.log(ex);
         }); 
