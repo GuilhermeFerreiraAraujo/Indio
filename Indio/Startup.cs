@@ -30,7 +30,7 @@ namespace Indio
             
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options => {
-                options.LoginPath = "/Users/Login";
+                options.Cookie.Name = "IndioCookie";
             });
 
             services.AddMvc();
