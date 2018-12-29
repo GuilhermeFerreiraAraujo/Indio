@@ -3,20 +3,17 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Indio</a>
         
-
-            <ul class="navbar-nav " repeat.for="nav of router.navigation">
-                <li class="nav-item ${nav.isActive ? 'active' : ''}">
-                  <a class="nav-link" href.bind="nav.href">${nav.title}</a>
-                </li>
-            </ul>
+        <ul class="navbar-nav " repeat.for="nav of router.navigation">
+            <li class="nav-item ${nav.isActive ? 'active' : ''}">
+                   <a class="nav-link" href.bind="nav.href">${nav.title}</a>
+            </li>
+        </ul>
 
         <ul class="navbar-nav ">
             <li class="nav-item ${nav.isActive ? 'active' : ''}">
                 <a class="nav-link" click.delegate="logOut()">Log out</a>
              </li>
         </ul>
-        
-          
       
       </nav>
 

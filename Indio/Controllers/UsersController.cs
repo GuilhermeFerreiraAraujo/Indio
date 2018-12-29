@@ -21,6 +21,13 @@ namespace Indio.Controllers
         }
 
         [HttpGet]
+        [Route("IsAuthenticated")]
+        public IActionResult IsAuthenticated()
+        {
+            return Ok();
+        }
+
+        [HttpGet]
         [Route("Get")]
         public IActionResult Get()
         {
