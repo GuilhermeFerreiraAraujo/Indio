@@ -24,6 +24,12 @@ namespace Indio.DataAccess
             return _context.Set<User>().ToList();
         }
 
+        public User GetLoginUser(string email, string password)
+        {
+            password = GetHashPassword(password);
+            return _context.Set<User>().FirstOrDefault(x => x.Email == email && x.Password == password);
+        }
+
         public SignUpResponse SignUpUser(SignUpRequest request)
         {
             var user = new User

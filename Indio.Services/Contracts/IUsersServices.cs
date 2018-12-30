@@ -10,5 +10,6 @@ namespace Indio.Services.Contracts
     {
         IEnumerable<User> GetUsers();
         SignUpResponse SignUpUser(SignUpRequest request);
+        User GetLoginUser(string email, string password);
     }
 }

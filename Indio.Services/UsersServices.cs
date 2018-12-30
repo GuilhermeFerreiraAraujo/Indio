@@ -16,6 +16,11 @@ namespace Indio.Services
             _usersDataAccess = usersDataAccess;
         }
 
+        public User GetLoginUser(string email, string password)
+        {
+            return _usersDataAccess.GetLoginUser(email, password);
+        }
+
         public IEnumerable<User> GetUsers()
         {
             return _usersDataAccess.Get();

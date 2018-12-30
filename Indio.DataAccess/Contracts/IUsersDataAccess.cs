@@ -9,5 +9,6 @@ namespace Indio.DataAccess.Contracts
     {
         List<User> Get();
         SignUpResponse SignUpUser(SignUpRequest request);
+        User GetLoginUser(string email, string password);
     }
 }
