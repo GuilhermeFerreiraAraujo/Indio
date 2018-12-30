@@ -5,8 +5,10 @@ using System.Security.Cryptography;
 using System.Text;
 using Indio.DataAccess.Contracts;
 using Indio.Models;
+using Indio.Models.Models;
 using Indio.Models.Requests;
 using Indio.Models.Responses;
+using Microsoft.EntityFrameworkCore;
 
 namespace Indio.DataAccess
 {
@@ -27,7 +29,11 @@ namespace Indio.DataAccess
         public User GetLoginUser(string email, string password)
         {
             password = GetHashPassword(password);
-            return _context.Set<User>().FirstOrDefault(x => x.Email == email && x.Password == password);
+            return _context.Set<User>()
+                .Include(x => x.UserPermissions)
+                    .ThenInclude(x => x.Permission)
+                .FirstOrDefault(x => x.Email == email && x.Password == password);
+
         }
 
         public SignUpResponse SignUpUser(SignUpRequest request)

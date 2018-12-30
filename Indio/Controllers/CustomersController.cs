@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Indio.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Customers")]
     [Route("api/[controller]")]
     public class CustomersController : Controller
     {

@@ -1,3 +1,4 @@
+using Indio.Models.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Indio.Models
@@ -16,6 +17,8 @@ namespace Indio.Models
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Permission> Permissions { get; set; }
+        public virtual DbSet<UserPermission> UserPermissions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

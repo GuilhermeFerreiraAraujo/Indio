@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Indio.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Users")]
     [Route("api/[controller]")]
     public class UsersController : Controller
     {
@@ -45,10 +45,14 @@ namespace Indio.Controllers
             if (user != null)
             {
                 var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.Email),
-                new Claim(ClaimTypes.Role, "Accounts")
-            };
+                {
+                    new Claim(ClaimTypes.Name, user.Email)
+                };
+
+                user.UserPermissions.ForEach(x =>
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, x.Permission.Name));
+                });
 
                 var userIdentity = new ClaimsIdentity(claims, "login");
 
