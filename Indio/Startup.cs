@@ -31,6 +31,7 @@ namespace Indio
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options => {
                 options.Cookie.Name = "IndioCookie";
+                options.Cookie.HttpOnly = true;
             });
 
             services.AddMvc();
