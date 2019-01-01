@@ -18,6 +18,14 @@ export class App {
     }); 
   }
 
+  newUser(){
+    alert("TO BE IMPLEMENTED");
+  }
+
+  openUser(id: number){
+    alert("TO BE IMPLEMENTED");
+  }
+
   configureRouter(config: RouterConfiguration, router: Router): void {
     config.title = 'Aurelia';
     config.map([
