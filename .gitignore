@@ -262,3 +262,5 @@ __pycache__/
 *.js
 
 *.map
+
+Indio/appsettings\.json
