@@ -38,16 +38,31 @@ namespace Indio.DataAccess
 
         public SignUpResponse SignUpUser(SignUpRequest request)
         {
-            var user = new User
-            {
-                Email = request.Email,
-                Name = request.Name,
-                Password = GetHashPassword(request.Password)
-            };
+            var errors = new List<string>();
 
-            _context.Add(user);
-            _context.SaveChanges();
-            return new SignUpResponse();
+            var user = _context.Set<User>().FirstOrDefault(x => x.Email == request.Email);
+
+            if (user != null)
+            {
+                errors.Add("The selected email is already in use.");
+            } else
+            {
+                user = new User
+                {
+                    Email = request.Email,
+                    Name = request.Name,
+                    Password = GetHashPassword(request.Password)
+                };
+            }
+
+            if (errors.Count == 0)
+            {
+                _context.Add(user);
+                _context.SaveChanges();
+                return new SignUpResponse { IsRequestCompleted = true };
+            }
+
+            return new SignUpResponse { IsRequestCompleted = false, Errors = errors };
         }
 
         private string GetHashPassword(string password)
