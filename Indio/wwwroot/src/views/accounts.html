@@ -1,33 +1,23 @@
 <template>
-
-   
-    <div class="card">
-        <div class="card-header">
-          Featured
-        </div>
-        <div class="card-body">
-        
-   
-            <table class="table table-sm table-striped table-hover">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Id</th>
-                        <th scope="col">Description</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr repeat.for="item of items">
-                        <th scope="row">1</th>
-                        <td>${item.id}</td>
-                        <td>${item.accountDescription}</td>
-                      </tr>
-                    
-                    </tbody>
-                  </table>
-               
-                </div>
-          
-        
+  <div class="card">
+    <div class="card-header">
+      Featured
     </div>
+    <div class="card-body">
+      <table class="table table-sm table-striped table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr repeat.for="item of items">
+            <td>${item.id}</td>
+            <td>${item.accountDescription}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
