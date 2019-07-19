@@ -1,6 +1,6 @@
 import { UserModel } from 'models/user.models';
 import { BaseClient } from 'services/baseClient';
-import { autoinject } from '../../node_modules/aurelia-framework';
+import { autoinject } from 'aurelia-framework';
 
 @autoinject
 export class users {

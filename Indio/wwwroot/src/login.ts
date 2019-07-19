@@ -21,7 +21,5 @@ export class Login {
             this.baseClient.get('users/IsAuthenticated').then(d => {
                 aurelia.setRoot(PLATFORM.moduleName('app'))
             });
-
-          
     }
 }

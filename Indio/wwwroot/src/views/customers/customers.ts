@@ -1,6 +1,6 @@
 import { CustomerModel } from 'models/customer.models';
 import { BaseClient } from 'services/baseClient';
-import { autoinject } from '../../node_modules/aurelia-framework';
+import { autoinject } from '../../../node_modules/aurelia-framework';
 
 @autoinject
 export class customers {

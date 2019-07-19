@@ -2,7 +2,6 @@ import { autoinject } from 'aurelia-framework';
 import { AccountModel } from 'models/account.models';
 import { BaseClient } from 'services/baseClient';
 
-
 @autoinject()
 export class accounts {
 
@@ -10,6 +9,10 @@ export class accounts {
 
     constructor(private baseClient: BaseClient){
 
+    }
+
+    newAccount() {
+      
     }
 
     activate() {
