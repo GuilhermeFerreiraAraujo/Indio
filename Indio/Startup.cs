@@ -6,13 +6,9 @@ using Indio.Services;
 using Indio.Services.Contracts;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.IO;
 
 namespace Indio
 {
@@ -40,7 +36,6 @@ namespace Indio
             services.AddTransient<ISmsService, SmsService>();
 
             var section = _configuration.GetSection("SMSOptions");
-
 
             services.Configure<SMSOptions>(section);
 

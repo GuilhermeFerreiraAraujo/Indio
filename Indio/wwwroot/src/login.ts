@@ -6,8 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export class Login {
 
     private request: any;
-    login: () => void;
-   
+    
+    login = () => {
+      this.baseClient.post('users/Login', this.request).then(data => {
+          this.aurelia.setRoot(PLATFORM.moduleName('app'))
+      }).catch(ex => {
+          console.log(ex);
+      }); 
+  }
+
     constructor(private baseClient: BaseClient,
         private aurelia: Aurelia){
 
@@ -15,12 +22,6 @@ export class Login {
                 aurelia.setRoot(PLATFORM.moduleName('app'))
             });
 
-            this.login = () => {
-                this.baseClient.post('users/Login', this.request).then(data => {
-                    aurelia.setRoot(PLATFORM.moduleName('app'))
-                }).catch(ex => {
-                    console.log(ex);
-                }); 
-            }
+          
     }
 }

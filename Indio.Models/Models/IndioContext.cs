@@ -24,7 +24,8 @@ namespace Indio.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-7H9S4CS\\SQLEXPRESS;Initial Catalog=Indio;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-7H9S4CS\\SQLEXPRESS;Initial Catalog=Indio;Integrated Security=True",
+                    x => x.MigrationsAssembly("Indio.Models"));
             }
         }
 
@@ -34,6 +35,8 @@ namespace Indio.Models
             {
                 entity.Property(e => e.Name).HasColumnName("NAME");
             });
+
+            modelBuilder.Entity<User>().HasData(new User { Id = 1, Email = "admin@admin.com", Name = "Admin", Password = "Test"});
         }
     }
 }
