@@ -28,8 +28,8 @@ namespace Indio.Controllers
         [Route("Save")]
         public IActionResult Save([FromBody] Customer customer)
         {
-            var customer = _customersServices.Save(customer);
-            return Ok(customer);
+            var response = _customersServices.Save(customer);
+            return Ok(response);
         }
     }
 }
