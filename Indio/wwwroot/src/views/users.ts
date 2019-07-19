@@ -15,7 +15,7 @@ export class users {
         this.baseClient.get('users/get').then(data => {
             this.items = JSON.parse(data.response);
           }).catch(ex => {
-              console.log(ex);
+            console.log(ex);
           });       
     }
 }
