@@ -29,10 +29,11 @@ export class App {
   configureRouter(config: RouterConfiguration, router: Router): void {
     config.title = 'Aurelia';
     config.map([
-      { route: ['SignUp'],  title: "Sign Up", nav:true,    name: 'SignUp',       moduleId: PLATFORM.moduleName('views/users/signup') },
-      { route: ['','accounts'],  title: "Accounts", nav:true,    name: 'Accounts',       moduleId: PLATFORM.moduleName('views/accounts/accounts') },
+      { route: ['SignUp'],       title: "Sign Up", nav:true,    name: 'SignUp',       moduleId: PLATFORM.moduleName('views/users/signup') },
+      { route: ['','accounts'],  title: "Accounts",  nav:true,    name: 'Accounts',       moduleId: PLATFORM.moduleName('views/accounts/accounts') },
+      { route: 'accounts/:id',   title: "Account Detail", name: 'AccountDetail', moduleId: PLATFORM.moduleName('views/accounts/AccountDetail') },
       { route: ['customers'],    title: "Customers", nav:true,     name: 'Customers',       moduleId: PLATFORM.moduleName('views/customers/customers') },
-      { route: ['users'],    title: "Users", nav:true,     name: 'Users',       moduleId: PLATFORM.moduleName('views/users/users') },
+      { route: ['users'],        title: "Users", nav:true,     name: 'Users',       moduleId: PLATFORM.moduleName('views/users/users') },
     ]);
     this.router = router;
   }

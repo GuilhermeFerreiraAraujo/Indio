@@ -6,5 +6,7 @@ namespace Indio.DataAccess.Contracts
     public interface IAccountsDataAccess
     {
         List<Account> Get();
+
+        Account Save(Account account);
     }
 }

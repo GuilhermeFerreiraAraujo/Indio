@@ -1,3 +1,4 @@
+import { Router } from 'aurelia-router';
 import { autoinject } from 'aurelia-framework';
 import { AccountModel } from 'models/account.models';
 import { BaseClient } from 'services/baseClient';
@@ -7,12 +8,13 @@ export class accounts {
 
     items: AccountModel[] = [];
 
-    constructor(private baseClient: BaseClient){
-
+    constructor(private baseClient: BaseClient,
+      private router: Router){
+        debugger;
     }
 
     newAccount() {
-      
+      this.router.navigateToRoute('AccountDetail', {id: 0});
     }
 
     activate() {

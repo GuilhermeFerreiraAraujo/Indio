@@ -5,6 +5,7 @@ namespace Indio.Services.Contracts
 {
     public interface IAccountsServices
     {
-        IEnumerable<Account> GetAccounts(); 
+        IEnumerable<Account> GetAccounts();
+        Account Save(Account account);
     }
 }

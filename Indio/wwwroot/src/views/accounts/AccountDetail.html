@@ -1,0 +1,24 @@
+<template>
+  <div class="card">
+    <div class="card-header">
+      Account Detail
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <div class="form-group">
+            <label>Account Description</label>
+            <input type="text" class="form-control" value.bind="item.accountDescription" placeholder="Description">
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="col-md-3 mb-3">
+          <button type="submit" click.delegate="save()" class="btn btn-block mybtn btn-primary tx-tfm">Save</button>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</template>

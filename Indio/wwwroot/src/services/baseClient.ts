@@ -14,11 +14,10 @@ export class BaseClient {
     }
 
     get(url: string) {
-       return this.client.get(`${url}`);
+      return this.client.get(`${url}`);
     }
 
     post(url: string, content: any) {
         return this.client.post(`${url}`, content);
     }
-
 }

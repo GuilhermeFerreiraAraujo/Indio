@@ -18,5 +18,10 @@ namespace Indio.Services
         {
             return _accountsDataAccess.Get();
         }
+
+        public Account Save(Account account)
+        {
+            return _accountsDataAccess.Save(account);
+        }
     }
 }

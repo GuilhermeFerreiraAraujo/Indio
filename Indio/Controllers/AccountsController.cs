@@ -1,10 +1,11 @@
-﻿using Indio.Services.Contracts;
+﻿using Indio.Models;
+using Indio.Services.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Indio.Controllers
 {
-    [Authorize(Roles = "Account")]
+    [Authorize]
     [Route("api/[controller]")]
     public class AccountsController : Controller
     {
@@ -24,6 +25,12 @@ namespace Indio.Controllers
             return Ok(result);
         }
 
-        
+        [HttpPost]
+        [Route("Save")]
+        public IActionResult Save([FromBody]Account account)
+        {
+            var acc = _accountsServices.Save(account);
+            return Ok(acc);
+        }
     }
 }
