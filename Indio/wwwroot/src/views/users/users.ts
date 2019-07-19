@@ -1,14 +1,20 @@
 import { UserModel } from 'models/user.models';
 import { BaseClient } from 'services/baseClient';
 import { autoinject } from 'aurelia-framework';
+import { Router } from 'aurelia-router';
 
-@autoinject
+@autoinject()
 export class users {
 
     protected items: UserModel[] = [];
 
-    constructor(private baseClient: BaseClient){
+    constructor(private baseClient: BaseClient,
+      private router: Router){
 
+    }
+
+    newUser() {
+      this.router.navigateToRoute('SignUp', {id: 0});
     }
 
     activate() {
