@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Indio.Controllers
 {
-    [Authorize(Roles = "Users")]
+    [Authorize]
     [Route("api/[controller]")]
     public class UsersController : Controller
     {
