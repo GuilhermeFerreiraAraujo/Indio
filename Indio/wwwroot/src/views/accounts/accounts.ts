@@ -10,7 +10,6 @@ export class accounts {
 
     constructor(private baseClient: BaseClient,
       private router: Router){
-        debugger;
     }
 
     newAccount() {

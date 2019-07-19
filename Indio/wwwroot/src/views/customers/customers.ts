@@ -3,7 +3,7 @@ import { BaseClient } from 'services/baseClient';
 import { autoinject } from '../../../node_modules/aurelia-framework';
 import { Router } from 'aurelia-router';
 
-@autoinject
+@autoinject()
 export class customers {
 
     protected items: CustomerModel[] = [];
@@ -13,8 +13,8 @@ export class customers {
 
     }
 
-    add(){
-      //this.router.navigateToRoute("");
+    newCustomer(){
+      this.router.navigateToRoute('CustomerDetail', {id: 0});
     }
 
     activate() {

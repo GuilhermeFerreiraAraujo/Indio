@@ -32,6 +32,7 @@ export class App {
       { route: ['SignUp'],       title: "Sign Up", nav:true,    name: 'SignUp',       moduleId: PLATFORM.moduleName('views/users/signup') },
       { route: ['','accounts'],  title: "Accounts",  nav:true,    name: 'Accounts',       moduleId: PLATFORM.moduleName('views/accounts/accounts') },
       { route: 'accounts/:id',   title: "Account Detail", name: 'AccountDetail', moduleId: PLATFORM.moduleName('views/accounts/AccountDetail') },
+      { route: 'customers/:id',  title: "Customer Detail", name: 'CustomerDetail', moduleId: PLATFORM.moduleName('views/customers/CustomerDetail')},
       { route: ['customers'],    title: "Customers", nav:true,     name: 'Customers',       moduleId: PLATFORM.moduleName('views/customers/customers') },
       { route: ['users'],        title: "Users", nav:true,     name: 'Users',       moduleId: PLATFORM.moduleName('views/users/users') },
     ]);
