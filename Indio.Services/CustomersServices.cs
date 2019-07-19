@@ -18,5 +18,10 @@ namespace Indio.Services
         {
             return _customersDataAccess.Get();
         }
+
+        public Customer Save(Customer customer)
+        {
+            return _customersDataAccess.Save(customer);
+        }
     }
 }

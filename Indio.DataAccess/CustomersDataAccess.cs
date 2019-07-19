@@ -18,5 +18,12 @@ namespace Indio.DataAccess
         {
             return _context.Set<Customer>().ToList();
         }
+
+        public Customer Save(Customer customer)
+        {
+            _context.Set<Customer>().Add(customer);
+            _context.SaveChanges();
+            return customer;
+        }
     }
 }

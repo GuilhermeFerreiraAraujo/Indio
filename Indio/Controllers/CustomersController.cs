@@ -1,4 +1,5 @@
-﻿using Indio.Services.Contracts;
+﻿using Indio.Models;
+using Indio.Services.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,6 +22,14 @@ namespace Indio.Controllers
         {
             var result = _customersServices.GetCustomers();
             return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("Save")]
+        public IActionResult Save([FromBody] Customer customer)
+        {
+            var customer = _customersServices.Save(customer);
+            return Ok(customer);
         }
     }
 }

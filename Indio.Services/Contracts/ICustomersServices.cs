@@ -7,5 +7,7 @@ namespace Indio.Services.Contracts
     public interface ICustomersServices
     {
         IEnumerable<Customer> GetCustomers();
+
+        Customer Save(Customer customer);
     }
 }
